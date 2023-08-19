@@ -1,0 +1,28 @@
+﻿@model sonun_sonu.Models.Customer
+
+<h2>Create Worker</h2>
+
+<form asp-controller="Home" asp-action="Create" method="post">
+    <div class="form-group">
+        <label>WM ID</label>
+        <input asp-for="WM_ID" class="form-control" style="width: 450px;" />
+        <span asp-validation-for="WM_ID" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>WM Name</label>
+        <input asp-for="WM_NAME" class="form-control" style="width: 450px;" oninput="this.value = this.value.replace(/[^a-zA-ZğüşıöçĞÜŞİÖÇ\s]/g, '')" />
+        <span asp-validation-for="WM_NAME" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>WM Surname</label>
+        <input asp-for="WM_SURNAME" class="form-control" style="width: 450px;" oninput="this.value = this.value.replace(/[^a-zA-ZğüşıöçĞÜŞİÖÇ\s]/g, '')" />
+        <span asp-validation-for="WM_SURNAME" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>WM Code</label>
+        <input asp-for="WM_CODE" class="form-control" style="width: 450px;" />
+        <span asp-validation-for="WM_CODE" class="text-danger"></span>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>

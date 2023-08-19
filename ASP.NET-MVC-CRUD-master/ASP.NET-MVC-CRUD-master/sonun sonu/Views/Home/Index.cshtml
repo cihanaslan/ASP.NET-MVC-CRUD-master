@@ -1,0 +1,60 @@
+﻿@model List<sonun_sonu.Models.Customer>
+
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+        color: #333;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+</style>
+
+
+<table>
+    <tr>
+        <th>WM ID</th>
+        <th>WM Name</th>
+        <th>WM Surname</th>
+        <th>WM Code</th>
+        <th>EDIT</th>
+        <th>DELETE</th>
+    </tr>
+    @foreach (var customer in Model)
+    {
+        <tr>
+            <td>@customer.WM_ID</td>
+            <td>@customer.WM_NAME</td>
+            <td>@customer.WM_SURNAME</td>
+            <td>@customer.WM_CODE</td>
+            <td>
+                <a href="@Url.Action("Edit", "Home", new { id = customer.WM_ID })" class="btn btn-primary">EDIT</a>
+            </td>
+            <td>
+                <form method="post" action="@Url.Action("Delete", "Home")" style="display: inline-block;">
+                    <input type="hidden" name="id" value="@customer.WM_ID" />
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Bu kaydı silmek istediğinize emin misiniz?')">DELETE</button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+
+
+

@@ -1,0 +1,19 @@
+﻿@page
+@model sonun_sonu.Views.Home.ChangeCustomerDataModel
+@{
+}
+<form method="post" action="/Home/ChangeCustomerData">
+    <label for="txtWMID">WM ID:</label>
+    <input type="number" id="txtWMID" name="txtWMID" />
+
+    <label for="txtWMCode">WM Code:</label>
+    <input type="number" id="txtWMCode" name="txtWMCode" />
+
+    <label for="txtWMName">WM Name:</label>
+    <input type="text" id="txtWMName" name="txtWMName" />
+
+    <label for="txtWMSurname">WM Surname:</label>
+    <input type="text" id="txtWMSurname" name="txtWMSurname" />
+
+    <input type="submit" value="Değiştir" />
+</form>

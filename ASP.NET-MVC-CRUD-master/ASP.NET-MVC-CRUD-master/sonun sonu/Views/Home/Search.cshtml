@@ -1,0 +1,43 @@
+﻿@model List<sonun_sonu.Models.Customer>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Customer List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Customer List</h1>
+        <form method="get" action="@Url.Action("Search", "Home")">
+            <div class="form-group">
+                <input type="text" name="keyword" placeholder="Search by Name or Surname" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+        <br />
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>CODE</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Surname</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var customer in Model)
+                {
+                    <tr>
+                        <td>@customer.WM_CODE</td>
+                        <td>@customer.WM_ID</td>
+                        <td>@customer.WM_NAME</td>
+                        <td>@customer.WM_SURNAME</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
